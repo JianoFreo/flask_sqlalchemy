@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: website1
+    env: python
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app --bind 0.0.0.0:$PORT
+    # To use a managed DB, set an environment variable like DATABASE_URL on Render
